@@ -1,0 +1,1142 @@
+
+/* ============================================================
+   TOPNOTCH MALL - UI 3.0 "Aurora"
+   Loads last. A ground-up restyle of every surface: header,
+   hero, category rail, product cards, sections and footer.
+   Deliberately unlike the donor template: soft depth, generous
+   radii, a luminous green accent and an amber buy button that
+   never competes with WhatsApp green.
+   ============================================================ */
+
+:root{
+  --tn-green:#22C55E;          /* luminous brand green */
+  --tn-green-600:#16B85A;
+  --tn-green-700:#0C7A3B;      /* green text on white */
+  --tn-forest:#0B2A1D;         /* dark surface */
+  --tn-forest-800:#082116;
+  --tn-buy:#F59E0B;            /* AMBER - add to cart */
+  --tn-buy-600:#D98806;
+  --tn-buy-ink:#3B2606;
+  --tn-wa:#25D366;             /* WhatsApp, outline only */
+  --tn-ink:#15211A;
+  --tn-muted:#5C6B61;
+  --tn-line:#E4EBE6;
+  --tn-surface:#FFFFFF;
+  --tn-wash:#F4F9F5;
+  --tn-r-lg:20px;
+  --tn-r:14px;
+  --tn-r-sm:10px;
+  --tn-shadow-sm:0 1px 2px rgba(11,42,29,.06),0 2px 8px rgba(11,42,29,.05);
+  --tn-shadow:0 4px 12px rgba(11,42,29,.07),0 14px 34px rgba(11,42,29,.08);
+  --tn-shadow-lg:0 10px 24px rgba(11,42,29,.10),0 30px 60px rgba(11,42,29,.14);
+  --tn-ring:0 0 0 4px rgba(34,197,94,.28);
+}
+
+body{background:var(--tn-wash);color:var(--tn-ink);letter-spacing:-.005em}
+.container{max-width:1320px}
+
+/* ---------- Typography rhythm ---------- */
+h1,h2,h3,h4{font-family:var(--rk-font);font-weight:800;letter-spacing:-.02em;color:var(--tn-forest)}
+.rk-section{padding:26px 0}
+.rk-section__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;border:0;padding:0}
+.rk-section__head h2{position:relative;margin:0;font-size:1.45rem;text-transform:none;letter-spacing:-.02em;padding:0;border:0}
+.rk-section__head h2::before{content:"";display:block;width:38px;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--tn-green),var(--tn-green-700));margin-bottom:10px}
+.rk-section__head .rk-viewmore{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--tn-line);
+  border-radius:99px;padding:8px 16px;font-weight:700;font-size:.85rem;color:var(--tn-green-700);text-transform:none;letter-spacing:0;box-shadow:var(--tn-shadow-sm)}
+.rk-section__head .rk-viewmore:hover{border-color:var(--tn-green);color:var(--tn-forest);transform:translateY(-1px)}
+
+/* ---------- Header ---------- */
+.rk-header__top{background:var(--tn-forest);color:#CFE6D8;font-size:.82rem}
+.rk-header__top a{color:#CFE6D8}
+.rk-header__top a:hover{color:var(--tn-green)}
+.rk-header__cutoff{opacity:1;color:#9FE7BC}
+.rk-header__mid{background:var(--tn-forest);padding:16px 0 18px;border-bottom:1px solid rgba(255,255,255,.06)}
+.rk-header__mid .container{grid-template-columns:215px 1fr auto;gap:28px}
+.rk-logo img{max-height:46px}
+
+.rk-search form{border-radius:99px;box-shadow:none;border:2px solid transparent;background:#fff;overflow:hidden;transition:border-color .16s,box-shadow .16s}
+.rk-search form:focus-within{border-color:var(--tn-green);box-shadow:var(--tn-ring)}
+.rk-search input{padding:.8rem 1.15rem;font-size:.95rem}
+.rk-search button{background:var(--tn-green);color:var(--tn-forest);font-weight:800;letter-spacing:.02em;padding:0 1.5rem;text-transform:none}
+.rk-search button:hover{background:var(--tn-green-600)}
+.rk-search__panel{border-radius:var(--tn-r);box-shadow:var(--tn-shadow-lg);border:1px solid var(--tn-line)}
+
+.rk-actions__item{border-radius:12px;padding:8px 12px;font-size:.7rem;font-weight:600}
+.rk-actions__item:hover{background:rgba(255,255,255,.10)}
+.rk-cart-count{background:var(--tn-buy);color:var(--tn-buy-ink);font-weight:900;box-shadow:0 0 0 3px var(--tn-forest)}
+
+.rk-nav{background:var(--tn-forest);border-top:1px solid rgba(255,255,255,.07)}
+.rk-nav ul{gap:4px}
+.rk-nav a{padding:13px 15px;font-size:.88rem;font-weight:600;letter-spacing:.01em;text-transform:none;border-radius:10px;color:#DCEFE4}
+.rk-nav a:hover,.rk-nav .current-menu-item>a{background:rgba(34,197,94,.16);color:#fff}
+.rk-header.is-stuck .rk-header__mid{box-shadow:0 10px 30px rgba(11,42,29,.28)}
+
+/* ---------- Hero: split layout, no boxed slider ---------- */
+.rk-hero{padding:22px 0 8px;background:
+  radial-gradient(1100px 380px at 12% -8%,rgba(34,197,94,.16),transparent 62%),
+  radial-gradient(900px 340px at 92% 0%,rgba(245,158,11,.13),transparent 60%)}
+.rk-hero .container{grid-template-columns:272px 1fr;gap:22px}
+
+.rk-vertcat{border:1px solid var(--tn-line);border-radius:var(--tn-r-lg);box-shadow:var(--tn-shadow-sm);background:#fff}
+.rk-vertcat h2{background:transparent;color:var(--tn-forest);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:16px 18px 8px;border-bottom:1px solid var(--tn-line);margin:0 0 6px}
+.rk-vertcat ul{padding:8px;max-height:378px}
+.rk-vertcat a{border-radius:10px;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--tn-ink)}
+.rk-vertcat a span{color:var(--tn-muted);font-size:.78rem;background:var(--tn-wash);border-radius:99px;padding:1px 9px}
+.rk-vertcat a:hover{background:rgba(34,197,94,.10);color:var(--tn-green-700)}
+.rk-vertcat a:hover span{background:#fff}
+
+.rk-slider{border-radius:var(--tn-r-lg);box-shadow:var(--tn-shadow);background:var(--tn-forest)}
+.rk-slide img{filter:saturate(1.03)}
+.rk-slide__promo{background:linear-gradient(90deg,rgba(8,33,22,.94) 0%,rgba(8,33,22,.78) 42%,rgba(8,33,22,0) 78%);
+  padding:clamp(20px,4vw,48px);max-width:none;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.rk-slide__promo h2{color:#fff;font-size:clamp(1.5rem,3.2vw,2.7rem);line-height:1.08;max-width:15ch;margin:0 0 .5rem;text-transform:none}
+.rk-slide__promo p{color:#CFE6D8;font-size:clamp(.92rem,1.25vw,1.06rem);max-width:34ch;margin:0 0 1.15rem}
+.rk-slide__promo .rk-btn,.rk-slide__promo .rk-btn--primary{background:var(--tn-green);color:var(--tn-forest);border-radius:99px;
+  padding:.85rem 1.7rem;font-weight:800;box-shadow:0 10px 26px rgba(34,197,94,.34)}
+.rk-slide__promo .rk-btn:hover{background:#fff;color:var(--tn-forest);transform:translateY(-2px)}
+.rk-slider__arrow{background:rgba(255,255,255,.14);border:0;color:#fff;backdrop-filter:blur(6px);width:44px;height:44px;border-radius:50%}
+.rk-slider__arrow:hover{background:#fff;color:var(--tn-forest)}
+.rk-slider__dots button{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.45);transition:width .2s}
+.rk-slider__dots button[aria-current="true"]{background:var(--tn-green);width:26px}
+
+/* ---------- Trust band: floating card, not a stripe ---------- */
+.rk-trustband{background:transparent;padding:18px 0 4px;border:0}
+.rk-trustband__grid{background:#fff;border:1px solid var(--tn-line);border-radius:var(--tn-r-lg);box-shadow:var(--tn-shadow-sm);
+  padding:18px;gap:10px}
+.rk-trustband__item{gap:12px;padding:8px 12px;border-radius:var(--tn-r);border:0}
+.rk-trustband__item:hover{background:var(--tn-wash)}
+.rk-trustband__icon{width:42px;height:42px;border-radius:13px;background:rgba(34,197,94,.13)}
+.rk-trustband__icon svg{color:var(--tn-green-700)}
+.rk-trustband__text strong{font-size:.9rem;color:var(--tn-forest)}
+.rk-trustband__text span{font-size:.8rem;color:var(--tn-muted)}
+
+/* ---------- Category tiles ---------- */
+.rk-catgrid{gap:14px}
+.rk-catcard{background:#fff;border:1px solid var(--tn-line);border-radius:var(--tn-r-lg);padding:14px 12px 16px;
+  box-shadow:var(--tn-shadow-sm);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;text-align:center}
+.rk-catcard:hover{transform:translateY(-4px);box-shadow:var(--tn-shadow);border-color:rgba(34,197,94,.45)}
+.rk-catcard img{border-radius:var(--tn-r);background:var(--tn-wash);aspect-ratio:4/3;object-fit:cover;margin-bottom:12px}
+.rk-catcard h3{font-size:.92rem;margin:0 0 3px;text-transform:none;letter-spacing:-.01em}
+.rk-catcard small{color:var(--tn-muted);font-weight:600;font-size:.76rem}
+.rk-catscroll__arrow{background:#fff;border:1px solid var(--tn-line);color:var(--tn-forest);box-shadow:var(--tn-shadow-sm);width:40px;height:40px;border-radius:50%}
+.rk-catscroll__arrow:hover{background:var(--tn-green);border-color:var(--tn-green);color:var(--tn-forest)}
+
+/* ---------- Product cards ---------- */
+.rk-products{gap:16px}
+.rk-card,ul.products li.product{background:#fff;border:1px solid var(--tn-line);border-radius:var(--tn-r-lg);overflow:hidden;
+  box-shadow:var(--tn-shadow-sm);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;display:flex;flex-direction:column}
+.rk-card:hover,ul.products li.product:hover{transform:translateY(-5px);box-shadow:var(--tn-shadow-lg);border-color:rgba(34,197,94,.4)}
+.rk-card__media,ul.products li.product a img{background:#fff}
+.rk-card__media{padding:10px;background:linear-gradient(180deg,var(--tn-wash),#fff)}
+.rk-card__media img{border-radius:var(--tn-r-sm);aspect-ratio:1/1;object-fit:contain;mix-blend-mode:multiply}
+.rk-card__body{padding:4px 14px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.rk-card__title,ul.products li.product .woocommerce-loop-product__title{font-size:.94rem;font-weight:700;line-height:1.35;color:var(--tn-ink);letter-spacing:-.01em}
+.rk-card__title a:hover{color:var(--tn-green-700)}
+.rk-card__desc{font-size:.82rem;color:var(--tn-muted);line-height:1.5}
+.rk-card__price,ul.products li.product .price{font-family:var(--rk-font);font-weight:900;font-size:1.18rem;color:var(--tn-forest);letter-spacing:-.02em}
+.rk-card__price del,ul.products li.product .price del{color:var(--tn-muted);font-weight:600;font-size:.86rem;opacity:.85}
+.rk-card__price ins{text-decoration:none}
+
+.rk-badge{border-radius:99px;font-weight:800;font-size:.68rem;letter-spacing:.06em;padding:5px 11px;text-transform:uppercase}
+.rk-badge--sale{background:var(--tn-buy);color:var(--tn-buy-ink);box-shadow:0 6px 16px rgba(245,158,11,.32)}
+.rk-badge--out{background:#F4F4F5;color:#6B7280}
+.rk-stock--in{color:var(--tn-green-700);font-weight:700;font-size:.78rem;display:inline-flex;align-items:center;gap:6px}
+.rk-stock--in::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tn-green);box-shadow:0 0 0 3px rgba(34,197,94,.22)}
+
+/* ---------- Buttons: amber buy vs outlined WhatsApp ---------- */
+.rk-btn{border-radius:99px;font-weight:800;letter-spacing:.01em}
+.rk-btn--primary{background:var(--tn-green-700);color:#fff}
+.rk-btn--primary:hover{background:var(--tn-forest);color:#fff}
+.rk-btn--ghost{border:1.5px solid var(--tn-line);background:#fff;color:var(--tn-forest)}
+.rk-btn--ghost:hover{border-color:var(--tn-green);color:var(--tn-green-700)}
+
+/* every add-to-cart surface, wherever WooCommerce renders one */
+.rk-card .add_to_cart_button,
+.rk-add-to-cart,
+ul.products li.product .add_to_cart_button,
+.woocommerce a.button.add_to_cart_button,
+.woocommerce a.button.ajax_add_to_cart,
+.single-product .single_add_to_cart_button,
+.woocommerce .button.alt,
+.woocommerce #respond input#submit.alt,
+.checkout-button,.wc-proceed-to-checkout .checkout-button{
+  background:var(--tn-buy)!important;color:var(--tn-buy-ink)!important;border:0!important;
+  border-radius:99px!important;font-weight:800!important;letter-spacing:.02em!important;
+  box-shadow:0 6px 16px rgba(245,158,11,.30)!important;text-transform:uppercase!important;font-size:.8rem!important;padding:.72rem 1.1rem!important}
+.rk-card .add_to_cart_button:hover,
+.rk-add-to-cart:hover,
+ul.products li.product .add_to_cart_button:hover,
+.woocommerce a.button.add_to_cart_button:hover,
+.woocommerce a.button.ajax_add_to_cart:hover,
+.single-product .single_add_to_cart_button:hover,
+.woocommerce .button.alt:hover,
+.checkout-button:hover{background:var(--tn-buy-600)!important;color:#2A1B03!important;transform:translateY(-1px)}
+
+/* WhatsApp steps back to a secondary outline so the two no longer fight */
+.rk-wa-btn{background:#fff!important;color:#0F7A3C!important;border:1.5px solid rgba(37,211,102,.55)!important;
+  border-radius:99px!important;font-weight:700!important;font-size:.78rem!important;padding:.58rem 1rem!important;box-shadow:none!important}
+.rk-wa-btn:hover{background:var(--tn-wa)!important;color:#08321A!important;border-color:var(--tn-wa)!important}
+.rk-wa-btn svg{width:16px;height:16px}
+
+.rk-icon-btn{background:rgba(255,255,255,.94);border:1px solid var(--tn-line);border-radius:50%;box-shadow:var(--tn-shadow-sm)}
+.rk-icon-btn:hover{background:var(--tn-green);border-color:var(--tn-green);color:var(--tn-forest)}
+
+/* floating WhatsApp bubble keeps brand green - it is the only one left */
+.rk-whatsapp{box-shadow:0 12px 30px rgba(37,211,102,.38)}
+.rk-backtop{background:var(--tn-forest);color:#fff;border-radius:50%;box-shadow:var(--tn-shadow)}
+.rk-backtop:hover{background:var(--tn-green);color:var(--tn-forest)}
+
+/* ---------- Footer ---------- */
+.rk-footer{background:var(--tn-forest);color:#C8DDD1;position:relative;margin-top:30px}
+.rk-footer::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--tn-green),var(--tn-buy),var(--tn-green))}
+.rk-footer h3{color:#fff;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;position:relative;padding-bottom:12px;margin-bottom:14px}
+.rk-footer h3::after{background:var(--tn-green);width:28px;height:3px;border-radius:99px}
+.rk-footer a{color:#C8DDD1}
+.rk-footer a:hover{color:var(--tn-green)}
+.rk-footer li{margin-bottom:7px}
+.rk-payments span{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:6px 13px;font-size:.76rem;color:#DCEFE4}
+.rk-footer__bar{background:rgba(0,0,0,.24);font-size:.82rem;color:#9FB8A9}
+
+/* ---------- Focus + motion ---------- */
+:focus-visible{outline:3px solid var(--tn-green);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .rk-hero .container{grid-template-columns:1fr}
+  .rk-vertcat{display:none}
+}
+@media (max-width:640px){
+  .rk-section__head h2{font-size:1.18rem}
+  .rk-slide__promo{background:linear-gradient(0deg,rgba(8,33,22,.95) 30%,rgba(8,33,22,.35) 100%)}
+  .rk-trustband__grid{padding:10px}
+}
+
+
+/* ============================================================
+   UI 3.1 - category rail, CTA separation, interaction polish
+   ============================================================ */
+
+/* ---------- All Categories: full list, scrolls to the slider height ---------- */
+.rk-hero .container{align-items:stretch}
+.rk-vertcat{display:flex;flex-direction:column;overflow:hidden;position:relative;max-height:none}
+.rk-vertcat h2{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;margin:0;padding:15px 18px 12px}
+.rk-vertcat h2 .rk-vertcat__count{font-size:.68rem;letter-spacing:.04em;font-weight:700;color:var(--tn-green-700);
+  background:rgba(34,197,94,.13);border-radius:99px;padding:3px 9px;text-transform:none}
+/* the list itself takes all remaining height and scrolls through every category */
+.rk-vertcat ul{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;
+  padding:6px 8px 10px;scrollbar-width:thin;scrollbar-color:rgba(34,197,94,.45) transparent}
+.rk-vertcat ul::-webkit-scrollbar{width:8px}
+.rk-vertcat ul::-webkit-scrollbar-track{background:transparent}
+.rk-vertcat ul::-webkit-scrollbar-thumb{background:rgba(11,42,29,.18);border-radius:99px;border:2px solid #fff}
+.rk-vertcat ul:hover::-webkit-scrollbar-thumb{background:rgba(34,197,94,.55)}
+.rk-vertcat li{margin:0}
+.rk-vertcat a{gap:10px;align-items:center;transition:background .14s,color .14s,padding-left .14s}
+.rk-vertcat a:hover{padding-left:16px}
+/* fade hint so it is obvious the list keeps going */
+.rk-vertcat::after{content:"";position:absolute;left:1px;right:9px;bottom:1px;height:38px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,0),#fff 78%);border-radius:0 0 var(--tn-r-lg) var(--tn-r-lg)}
+.rk-vertcat__all{flex:0 0 auto;position:relative;z-index:1;margin:0;padding:11px 18px;border-top:1px solid var(--tn-line);
+  background:#fff;font-weight:700;font-size:.82rem;color:var(--tn-green-700);display:flex;align-items:center;justify-content:space-between}
+.rk-vertcat__all:hover{background:var(--tn-wash)}
+
+/* ---------- Product card: one clear buy action, WhatsApp on hover ---------- */
+.rk-card{position:relative}
+.rk-card__media{position:relative;overflow:hidden}
+.rk-card__media img{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.rk-card:hover .rk-card__media img{transform:scale(1.045)}
+
+/* quick actions slide in instead of sitting there permanently */
+.rk-card__actions{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:8px;
+  opacity:0;transform:translateX(10px);transition:opacity .18s ease,transform .18s ease}
+.rk-card:hover .rk-card__actions,.rk-card:focus-within .rk-card__actions{opacity:1;transform:none}
+
+/* the buy button owns amber and is always available */
+.rk-card .rk-btn--block{margin-top:auto}
+
+/* WhatsApp: reserved space so nothing jumps, revealed on hover/focus,
+   and a completely different hue from the amber buy button */
+.rk-card .rk-wa-btn{
+  display:flex!important;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:8px;
+  background:#EAF9F0!important;color:#0B7A3C!important;border:1.5px solid rgba(37,211,102,.45)!important;
+  opacity:.45;transform:translateY(3px);
+  transition:opacity .18s ease,transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease}
+.rk-card:hover .rk-wa-btn,.rk-card:focus-within .rk-wa-btn,.rk-card .rk-wa-btn:focus-visible{
+  opacity:1;transform:none;background:#25D366!important;color:#07361C!important;
+  border-color:#25D366!important;box-shadow:0 8px 18px rgba(37,211,102,.30)!important}
+.rk-card .rk-wa-btn:hover{background:#1DB855!important;color:#052B15!important}
+/* touch devices have no hover: keep it visible and tappable */
+@media (hover:none){
+  .rk-card .rk-wa-btn{opacity:1;transform:none}
+  .rk-card__actions{opacity:1;transform:none}
+}
+
+/* AJAX feedback */
+.rk-btn.is-loading{opacity:.75;pointer-events:none}
+.rk-btn.is-added{background:var(--tn-green)!important;color:var(--tn-forest)!important}
+
+/* ---------- Badges sit over the image, out of the flow ---------- */
+.rk-card__badges{position:absolute;top:10px;left:10px;z-index:2;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+
+/* ---------- Category rail: snap scrolling ---------- */
+.rk-catgrid{scroll-snap-type:x mandatory;scroll-padding:16px}
+.rk-catcard{scroll-snap-align:start}
+.rk-catcard img{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.rk-catcard:hover img{transform:scale(1.04)}
+
+/* ---------- Section rhythm + mobile ---------- */
+.rk-section--products{padding-top:14px}
+@media (max-width:900px){
+  .rk-products{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rk-card__excerpt{display:none}
+  .rk-card .rk-wa-btn{font-size:.72rem!important;padding:.5rem .6rem!important}
+}
+@media (max-width:1024px){
+  /* the category panel is hidden beside the slider, so give it a home on mobile */
+  .rk-vertcat{display:none}
+}
+
+
+/* ============================================================
+   UI 3.2 - mobile experience + static bottom tab bar
+   ============================================================ */
+
+/* ---------- FIX: the card buy button is .rk-btn--primary[data-topnotch-add],
+   not a WooCommerce .add_to_cart_button, so the amber rule never reached it. ---------- */
+.rk-card [data-topnotch-add],
+.rk-card .rk-btn--primary,
+ul.products li.product [data-topnotch-add],
+[data-topnotch-add].rk-btn{
+  background:var(--tn-buy)!important;color:var(--tn-buy-ink)!important;border:0!important;
+  box-shadow:0 6px 16px rgba(245,158,11,.30)!important;text-transform:uppercase!important;
+  font-weight:800!important;letter-spacing:.02em!important}
+.rk-card [data-topnotch-add]:hover,
+.rk-card .rk-btn--primary:hover,
+[data-topnotch-add].rk-btn:hover{background:var(--tn-buy-600)!important;color:#2A1B03!important}
+/* "View Product" (unpurchasable) stays dark green so it never mimics the buy button */
+.rk-card .rk-btn--navy{background:var(--tn-forest)!important;color:#fff!important}
+
+/* ============================ MOBILE ============================ */
+@media (max-width:1024px){
+  html,body{overflow-x:hidden}
+
+  /* Top bar: one tidy line. Hours and email are in the footer already. */
+  .rk-header__top{font-size:.76rem}
+  .rk-header__top .container{justify-content:center;gap:14px;padding:7px 16px}
+  .rk-header__hours{display:none}
+  .rk-header__contact{gap:14px;justify-content:center;width:100%}
+  .rk-header__contact a{white-space:nowrap}
+  .rk-header__contact a:nth-child(3){display:none} /* email: keep the bar to one line */
+
+  /* Middle bar: burger + logo + icons on row one, full-width search on row two. */
+  .rk-header__mid{padding:10px 0 12px}
+  .rk-header__mid .container{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    grid-template-areas:"toggle logo actions" "search search search";
+    gap:10px 12px;align-items:center}
+  .rk-nav-toggle{grid-area:toggle;display:inline-flex!important;padding:8px;margin:0}
+  .rk-logo{grid-area:logo;justify-self:start}
+  .rk-logo img{max-height:34px}
+  .rk-actions{grid-area:actions;gap:2px}
+  .rk-search{grid-area:search;width:100%;min-width:0}
+  .rk-search form{width:100%}
+  .rk-search input{font-size:16px} /* stops iOS zooming on focus */
+
+  /* Icon-only actions: the labels were pushing the row off-screen. */
+  .rk-actions__item span:not(.rk-cart-count){display:none}
+  .rk-actions__item{padding:7px 8px}
+  .rk-actions__item svg{width:22px;height:22px;margin:0}
+
+  .rk-nav{display:none} /* the tab bar and category drawer replace it */
+}
+
+@media (max-width:640px){
+  .rk-hero{padding:14px 0 4px}
+  .rk-slide__promo h2{font-size:1.32rem;max-width:18ch}
+  .rk-slide__promo p{font-size:.86rem;max-width:32ch;margin-bottom:.85rem}
+  .rk-slide__promo .rk-btn{padding:.7rem 1.35rem;font-size:.85rem}
+  .rk-trustband__grid{grid-template-columns:1fr;gap:2px}
+  .rk-section{padding:18px 0}
+  .rk-section__head h2{font-size:1.1rem}
+  .rk-card__title{font-size:.88rem}
+  .rk-card__price,ul.products li.product .price{font-size:1.02rem}
+  .rk-card [data-topnotch-add]{font-size:.74rem!important;padding:.68rem .5rem!important}
+  .rk-footer__cols{gap:22px}
+}
+
+/* ---------- Static bottom tab bar ---------- */
+.rk-tabbar{display:none}
+
+@media (max-width:1024px){
+  .rk-tabbar{
+    display:grid;grid-template-columns:repeat(5,1fr);align-items:stretch;
+    position:fixed;left:0;right:0;bottom:0;z-index:120;
+    background:rgba(255,255,255,.92);backdrop-filter:saturate(1.6) blur(14px);
+    border-top:1px solid var(--tn-line);
+    box-shadow:0 -6px 24px rgba(11,42,29,.10);
+    padding-bottom:env(safe-area-inset-bottom)}
+
+  .rk-tabbar__item{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    padding:9px 4px 7px;border:0;background:transparent;cursor:pointer;
+    font-size:.66rem;font-weight:700;letter-spacing:.01em;color:var(--tn-muted);
+    text-decoration:none;min-height:56px;-webkit-tap-highlight-color:transparent;
+    transition:color .15s ease,transform .12s ease}
+  .rk-tabbar__item svg{width:22px;height:22px;fill:currentColor}
+  .rk-tabbar__item:active{transform:scale(.94)}
+  .rk-tabbar__item:hover,.rk-tabbar__item:focus-visible{color:var(--tn-forest)}
+  .rk-tabbar__item.is-active{color:var(--tn-green-700)}
+  .rk-tabbar__item.is-active::before{
+    content:"";position:absolute;top:0;width:28px;height:3px;border-radius:0 0 99px 99px;background:var(--tn-green)}
+  .rk-tabbar__item{position:relative}
+  .rk-tabbar__item--wa{color:#0F7A3C}
+  .rk-tabbar__item--wa svg{fill:#25D366}
+
+  .rk-tabbar__icon{position:relative;display:inline-flex}
+  .rk-tabbar__count{
+    position:absolute;top:-6px;right:-10px;min-width:18px;height:18px;padding:0 5px;
+    border-radius:99px;background:var(--tn-buy);color:var(--tn-buy-ink);
+    font-size:.64rem;font-weight:900;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 2px #fff}
+  .rk-tabbar__count[data-count="0"]{display:none}
+
+  /* Keep the tab bar clear of page content and floating buttons */
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .rk-whatsapp{bottom:calc(74px + env(safe-area-inset-bottom));width:50px;height:50px}
+  .rk-backtop{bottom:calc(74px + env(safe-area-inset-bottom));width:42px;height:42px}
+  .rk-drawer__panel{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+}
+
+/* The category drawer opened by the Categories tab */
+@media (max-width:1024px){
+  .rk-mobile{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
+  .rk-mobile__cats a{padding:13px 14px;font-size:.92rem}
+  body.rk-noscroll{overflow:hidden}
+}
+
+
+/* ============================================================
+   UI 3.2.1 - full category scroll, amber buy, distinct WhatsApp hover
+   ============================================================ */
+
+/* ---------- The panel now carries the whole taxonomy, so it must scroll ---------- */
+.rk-hero .container{align-items:stretch}
+.rk-vertcat{display:flex;flex-direction:column;min-height:0;overflow:hidden;
+  border:1px solid var(--tn-line);border-radius:14px;background:#fff;
+  box-shadow:0 10px 30px rgba(11,42,29,.07)}
+.rk-vertcat h2{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;margin:0;
+  padding:13px 15px;background:linear-gradient(135deg,var(--tn-forest),#0F3B27);
+  color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.rk-vertcat__count{
+  flex:0 0 auto;min-width:24px;padding:2px 8px;border-radius:99px;
+  background:var(--tn-green);color:#04240F;font-size:.7rem;font-weight:900;letter-spacing:0;text-align:center}
+
+.rk-vertcat ul,.rk-vertcat__list{
+  flex:1 1 auto;min-height:0;max-height:none!important;
+  overflow-y:auto;overscroll-behavior:contain;
+  margin:0;padding:4px 0;list-style:none;
+  scrollbar-width:thin;scrollbar-color:var(--tn-green-300) transparent}
+.rk-vertcat ul::-webkit-scrollbar{width:8px}
+.rk-vertcat ul::-webkit-scrollbar-track{background:transparent}
+.rk-vertcat ul::-webkit-scrollbar-thumb{
+  background:var(--tn-green-300);border-radius:99px;border:2px solid #fff}
+.rk-vertcat ul::-webkit-scrollbar-thumb:hover{background:var(--tn-green)}
+
+.rk-vertcat li{margin:0}
+.rk-vertcat li a{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 15px;font-size:.855rem;font-weight:600;color:var(--tn-ink);
+  text-decoration:none;border-left:3px solid transparent;
+  transition:background .14s ease,color .14s ease,border-color .14s ease,padding-left .14s ease}
+.rk-vertcat li a:hover,.rk-vertcat li a:focus-visible{
+  background:var(--tn-green-050,#F0FDF4);color:var(--tn-green-700);
+  border-left-color:var(--tn-green);padding-left:19px}
+.rk-vertcat__name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk-vertcat__qty{
+  flex:0 0 auto;min-width:26px;padding:1px 7px;border-radius:99px;
+  background:#F1F5F3;color:var(--tn-muted);font-size:.7rem;font-weight:800;text-align:center;
+  transition:background .14s ease,color .14s ease}
+.rk-vertcat li a:hover .rk-vertcat__qty{background:var(--tn-green);color:#04240F}
+
+.rk-vertcat__all{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:11px 14px;border-top:1px solid var(--tn-line);background:#FAFCFB;
+  font-size:.78rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--tn-green-700);text-decoration:none;transition:background .14s ease,gap .14s ease}
+.rk-vertcat__all:hover{background:var(--tn-green-050,#F0FDF4);gap:11px}
+
+/* ---------- Buy button: amber, and unmistakably not the WhatsApp button ---------- */
+.rk-btn--primary[data-topnotch-add],
+button[data-topnotch-add],
+.rk-card .rk-btn--primary[data-topnotch-add]{
+  background:var(--tn-buy)!important;background-image:none!important;
+  color:var(--tn-buy-ink)!important;border-color:var(--tn-buy)!important}
+.rk-btn--primary[data-topnotch-add]:hover,
+button[data-topnotch-add]:hover,
+.rk-btn--primary[data-topnotch-add]:focus-visible{
+  background:var(--tn-buy-600)!important;color:#2A1B03!important;
+  box-shadow:0 8px 20px rgba(245,158,11,.38)!important}
+
+/* WhatsApp stays an outline button and deepens to WhatsApp green on hover,
+   which no longer collides with the buy action now that buying is amber. */
+.rk-card .rk-wa,.rk-wa-btn,a[href*="wa.me"].rk-btn{
+  background:#fff!important;color:#0B6B33!important;
+  border:1.5px solid #9FE7BC!important;font-weight:700!important}
+.rk-card .rk-wa:hover,.rk-wa-btn:hover,a[href*="wa.me"].rk-btn:hover{
+  background:#128C4A!important;color:#fff!important;border-color:#128C4A!important;
+  box-shadow:0 8px 18px rgba(18,140,74,.28)!important}
+
+@media (max-width:1024px){
+  .rk-vertcat{max-height:none}
+  .rk-vertcat ul,.rk-vertcat__list{max-height:58vh!important}
+}
+
+
+/* ============================================================
+   UI 3.2.2 - bound the category panel so it actually scrolls,
+              and fill the WhatsApp button now that buying is amber
+   ============================================================ */
+
+/* The previous layer set max-height:none, which removed the only bound the
+   list had. An unbounded flex column cannot scroll, so all 31 rows rendered
+   at full height and pushed the hero down the page. The panel now gets a
+   definite height close to the slider's (banners are 1600x667), and the list
+   scrolls inside it. */
+.rk-hero .container{align-items:start}
+.rk-vertcat{
+  height:clamp(380px,31.5vw,520px);
+  max-height:clamp(380px,31.5vw,520px);
+  display:flex;flex-direction:column;overflow:hidden}
+.rk-vertcat ul,.rk-vertcat__list{
+  flex:1 1 auto;min-height:0;
+  max-height:100%!important;   /* beats the earlier max-height:none */
+  overflow-y:auto;overscroll-behavior:contain}
+
+/* A soft fade at the foot of the list, so it reads as scrollable */
+.rk-vertcat{position:relative}
+.rk-vertcat__list::after{content:""}
+.rk-vertcat::after{
+  content:"";position:absolute;left:0;right:8px;bottom:42px;height:26px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),#fff);
+  pointer-events:none;opacity:.95}
+
+/* ---------- WhatsApp: full brand colour, as the buy button is amber ---------- */
+.rk-card .rk-wa,.rk-wa-btn,a[href*="wa.me"].rk-btn,.rk-btn--wa{
+  background:#25D366!important;background-image:none!important;
+  color:#04240F!important;border:0!important;
+  font-weight:800!important;letter-spacing:.01em;
+  box-shadow:0 6px 16px rgba(37,211,102,.30)!important}
+.rk-card .rk-wa:hover,.rk-wa-btn:hover,a[href*="wa.me"].rk-btn:hover,
+.rk-btn--wa:hover,.rk-card .rk-wa:focus-visible{
+  background:#1EBE5D!important;color:#04240F!important;
+  box-shadow:0 8px 20px rgba(37,211,102,.42)!important}
+.rk-card .rk-wa svg,.rk-wa-btn svg{fill:#04240F!important}
+
+/* Buy sits above WhatsApp: amber first, green second, both solid */
+.rk-card__actions{display:flex;flex-direction:column;gap:7px}
+
+@media (max-width:1024px){
+  .rk-vertcat{height:auto;max-height:none}
+  .rk-vertcat ul,.rk-vertcat__list{max-height:58vh!important}
+  .rk-vertcat::after{display:none}
+}
+
+
+/* ============================================================
+   UI 4.0 - professional polish pass
+   Logo, header structure, section rhythm, card consistency,
+   category discovery, focus states.
+   ============================================================ */
+
+/* ---------- White logo on the dark bar ---------- */
+.rk-logo{display:flex;align-items:center;min-width:0}
+.rk-logo__link{display:inline-flex;align-items:center;text-decoration:none}
+.rk-logo__img,.rk-logo img{
+  display:block;height:auto;max-height:46px;width:auto;max-width:100%;
+  image-rendering:-webkit-optimize-contrast}
+.rk-logo__text{color:#fff;font-weight:800;font-size:1.4rem;text-decoration:none;letter-spacing:-.01em}
+.rk-logo__link:focus-visible{outline:2px solid var(--tn-green);outline-offset:4px;border-radius:6px}
+
+/* ---------- Header: calmer, better separated, sticky-safe ---------- */
+.rk-header__top{
+  background:var(--tn-navy,#071F15);color:rgba(255,255,255,.78);
+  font-size:.79rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.rk-header__top a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:600}
+.rk-header__top a:hover{color:var(--tn-green,#22C55E)}
+.rk-header__mid{background:linear-gradient(180deg,var(--tn-forest,#0B2A1D),#0A2418)}
+.rk-header__mid .container{gap:22px}
+
+/* Search reads as the primary tool it is */
+.rk-search input[type="search"],.rk-search input[type="text"]{
+  height:46px;border:2px solid transparent;border-radius:10px;
+  background:#fff;font-size:.93rem;padding:0 14px;
+  box-shadow:0 2px 10px rgba(0,0,0,.14);transition:border-color .16s ease,box-shadow .16s ease}
+.rk-search input:focus{
+  border-color:var(--tn-green,#22C55E);outline:none;
+  box-shadow:0 0 0 4px rgba(34,197,94,.22)}
+.rk-search button[type="submit"]{
+  height:46px;border-radius:10px;font-weight:800;letter-spacing:.02em;
+  background:var(--tn-green,#22C55E);color:#04240F;border:0;padding:0 20px;cursor:pointer;
+  transition:background .16s ease,transform .12s ease}
+.rk-search button[type="submit"]:hover{background:#1EBE5D}
+.rk-search button[type="submit"]:active{transform:translateY(1px)}
+
+/* Header icons: consistent, labelled, obvious hit areas */
+.rk-actions{display:flex;align-items:center;gap:6px}
+.rk-actions__item{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:7px 11px;border-radius:9px;color:rgba(255,255,255,.92);
+  text-decoration:none;font-size:.7rem;font-weight:700;line-height:1;
+  transition:background .15s ease,color .15s ease}
+.rk-actions__item:hover{background:rgba(255,255,255,.10);color:#fff}
+.rk-actions__item:focus-visible{outline:2px solid var(--tn-green);outline-offset:2px}
+.rk-cart-count{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:19px;height:19px;padding:0 5px;border-radius:99px;
+  background:var(--tn-buy,#F59E0B);color:var(--tn-buy-ink,#3A2606);
+  font-size:.66rem;font-weight:900}
+
+/* Primary nav: clearer active state and hover affordance */
+.rk-nav{background:#0A2418;border-top:1px solid rgba(255,255,255,.07)}
+.rk-nav a{
+  position:relative;padding:13px 15px;font-size:.86rem;font-weight:700;
+  color:rgba(255,255,255,.88);text-decoration:none;transition:color .15s ease}
+.rk-nav a:hover,.rk-nav a:focus-visible{color:#fff}
+.rk-nav a::after{
+  content:"";position:absolute;left:15px;right:15px;bottom:7px;height:2px;
+  background:var(--tn-green,#22C55E);border-radius:2px;
+  transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+.rk-nav a:hover::after,.rk-nav .current-menu-item>a::after{transform:scaleX(1)}
+
+/* ---------- Section rhythm: consistent vertical scale ---------- */
+.rk-section{padding:38px 0}
+.rk-section+.rk-section{padding-top:8px}
+.rk-section__head{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid var(--tn-line,#E3EAE6)}
+.rk-section__head h2{
+  margin:0;font-size:1.28rem;font-weight:800;letter-spacing:-.015em;color:var(--tn-ink,#0B2A1D)}
+.rk-section__head h2::before{
+  content:"";display:inline-block;width:4px;height:19px;margin-right:11px;
+  border-radius:3px;background:var(--tn-green,#22C55E);vertical-align:-3px}
+.rk-section__head a{
+  flex:0 0 auto;font-size:.8rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
+  color:var(--tn-green-700,#0C7A3B);text-decoration:none;
+  padding:7px 13px;border:1.5px solid var(--tn-green-300,#4ADE80);border-radius:99px;
+  transition:background .15s ease,gap .15s ease}
+.rk-section__head a:hover{background:var(--tn-green-050,#F0FDF4)}
+
+/* ---------- Product cards: equal height, aligned prices and actions ---------- */
+ul.products li.product,.rk-card{
+  display:flex;flex-direction:column;height:100%;
+  background:#fff;border:1px solid var(--tn-line,#E3EAE6);border-radius:13px;
+  overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+ul.products li.product:hover,.rk-card:hover{
+  transform:translateY(-3px);border-color:var(--tn-green-300,#4ADE80);
+  box-shadow:0 14px 34px rgba(11,42,29,.13)}
+.rk-card__media,ul.products li.product a img{background:#fff}
+.rk-card__body{display:flex;flex-direction:column;flex:1 1 auto;gap:7px;padding:13px}
+
+/* Two-line titles keep every card the same height */
+.rk-card__title,ul.products li.product .woocommerce-loop-product__title{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0;font-size:.92rem;font-weight:700;line-height:1.35;min-height:2.7em;
+  color:var(--tn-ink,#0B2A1D)}
+.rk-card__excerpt{
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0;font-size:.8rem;line-height:1.45;color:var(--tn-muted,#5B6B63)}
+.rk-card__price,ul.products li.product .price{
+  margin-top:auto;font-size:1.1rem;font-weight:900;color:var(--tn-ink,#0B2A1D);letter-spacing:-.01em}
+.rk-card__price del,ul.products li.product .price del{
+  font-size:.82rem;font-weight:600;opacity:.55;margin-right:6px}
+.rk-card__price ins,ul.products li.product .price ins{text-decoration:none;color:#B9451D}
+
+/* Stock line as a quiet pill rather than loose text */
+.rk-card__stock{
+  display:inline-flex;align-items:center;gap:5px;align-self:flex-start;
+  padding:2px 9px;border-radius:99px;background:var(--tn-green-050,#F0FDF4);
+  font-size:.71rem;font-weight:800;color:var(--tn-green-700,#0C7A3B)}
+.rk-card__stock::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--tn-green,#22C55E)}
+.rk-card__stock--out{background:#FEF2F2;color:#B42318}
+.rk-card__stock--out::before{background:#EF4444}
+
+/* Actions pinned to the card foot, uniform height */
+.rk-card__actions{margin-top:11px;padding:0 13px 13px}
+.rk-card__actions .rk-btn{
+  width:100%;min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border-radius:9px;font-size:.81rem;cursor:pointer}
+
+/* SALE badge */
+.rk-badge,span.onsale{
+  position:absolute;top:10px;left:10px;z-index:2;
+  padding:4px 10px;border-radius:99px;
+  background:var(--tn-buy,#F59E0B);color:var(--tn-buy-ink,#3A2606);
+  font-size:.67rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 3px 10px rgba(245,158,11,.34)}
+
+/* ---------- Category tiles: the main browse path ---------- */
+.rk-cats__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.rk-cat-tile{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid var(--tn-line,#E3EAE6);border-radius:13px;background:#fff;
+  text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.rk-cat-tile:hover{
+  transform:translateY(-3px);border-color:var(--tn-green-300,#4ADE80);
+  box-shadow:0 14px 32px rgba(11,42,29,.14)}
+.rk-cat-tile__media{aspect-ratio:4/3;overflow:hidden;background:#F4F7F5}
+.rk-cat-tile__media img{
+  width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.rk-cat-tile:hover .rk-cat-tile__media img{transform:scale(1.07)}
+.rk-cat-tile__body{padding:11px 12px 13px;text-align:center}
+.rk-cat-tile__name{
+  display:block;font-size:.87rem;font-weight:800;color:var(--tn-ink,#0B2A1D);line-height:1.3}
+.rk-cat-tile__count{display:block;margin-top:3px;font-size:.73rem;font-weight:600;color:var(--tn-muted,#5B6B63)}
+
+@media (max-width:1100px){.rk-cats__grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.rk-cats__grid{grid-template-columns:repeat(3,1fr);gap:10px}}
+@media (max-width:520px){.rk-cats__grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Trust band ---------- */
+.rk-trustband{background:#F6F9F7;border-block:1px solid var(--tn-line,#E3EAE6)}
+.rk-trustband__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--tn-line,#E3EAE6)}
+.rk-trustband__item{
+  display:flex;align-items:flex-start;gap:11px;padding:18px 16px;background:#F6F9F7}
+.rk-trustband__item svg{flex:0 0 auto;width:26px;height:26px;fill:var(--tn-green-700,#0C7A3B)}
+.rk-trustband__item strong{display:block;font-size:.87rem;font-weight:800;color:var(--tn-ink,#0B2A1D)}
+.rk-trustband__item span{display:block;font-size:.78rem;line-height:1.45;color:var(--tn-muted,#5B6B63)}
+
+/* ---------- Footer ---------- */
+.rk-footer{background:var(--tn-forest,#0B2A1D);color:rgba(255,255,255,.76)}
+.rk-footer h3,.rk-footer h2{
+  color:#fff;font-size:.82rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:0 0 13px}
+.rk-footer a{color:rgba(255,255,255,.76);text-decoration:none;transition:color .15s ease}
+.rk-footer a:hover{color:var(--tn-green,#22C55E)}
+.rk-footer__cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:34px;padding:38px 0}
+.rk-footer__bottom{
+  border-top:1px solid rgba(255,255,255,.10);padding:15px 0;
+  font-size:.79rem;color:rgba(255,255,255,.6)}
+.rk-footer img{max-height:26px;width:auto}
+
+/* ---------- Accessibility: visible focus everywhere ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--tn-green,#22C55E);outline-offset:2px;border-radius:4px}
+.rk-skip{
+  position:absolute;left:-9999px;top:0;z-index:999;
+  padding:11px 17px;background:#fff;color:var(--tn-ink,#0B2A1D);font-weight:800;border-radius:0 0 8px 0}
+.rk-skip:focus{left:0}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rk-card:hover,.rk-cat-tile:hover,ul.products li.product:hover{transform:none}
+}
+
+@media (max-width:1024px){
+  .rk-logo__img,.rk-logo img{max-height:34px}
+  .rk-footer__cols{grid-template-columns:1fr 1fr;gap:26px;padding:28px 0}
+  .rk-trustband__grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .rk-footer__cols{grid-template-columns:1fr}
+  .rk-section{padding:22px 0}
+  .rk-section__head h2{font-size:1.08rem}
+}
+
+
+/* ============================================================
+   UI 4.2 - mobile category scrolling, un-clipped card text,
+            and a reworked product page
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. The All Categories panel on mobile
+
+   It used to be a nested scroller (max-height:58vh, overflow:auto)
+   sitting inside a panel with overflow:hidden. On a phone that meant
+   the touch gesture was swallowed by the inner box, the foot of the
+   list sat underneath the fixed tab bar, and the last categories could
+   never be reached. On mobile the list now renders in normal page flow
+   and the page itself does the scrolling; it is collapsed to the first
+   nine rows with a toggle so the hero stays short.
+   ------------------------------------------------------------ */
+@media (max-width:1024px){
+  .rk-hero .container{align-items:start}
+  .rk-vertcat{
+    height:auto!important;max-height:none!important;overflow:visible!important;
+    margin-bottom:14px}
+  .rk-vertcat ul,.rk-vertcat__list{
+    max-height:none!important;overflow:visible!important;
+    overscroll-behavior:auto;-webkit-overflow-scrolling:auto;
+    padding-bottom:0}
+  .rk-vertcat::after{display:none!important}
+  /* Bigger tap targets on a touch screen */
+  .rk-vertcat li a{padding:13px 15px;font-size:.9rem}
+
+  .rk-vertcat__list.is-collapsed{overflow:hidden!important}
+  .rk-vertcat__list.is-collapsed li:nth-child(n+10){display:none}
+
+  .rk-vertcat__toggle{
+    display:flex;align-items:center;justify-content:center;gap:7px;width:100%;
+    padding:12px 14px;border:0;border-top:1px solid var(--tn-line,#E3EAE6);
+    background:#FAFCFB;color:var(--tn-green-700,#0C7A3B);
+    font:inherit;font-size:.78rem;font-weight:800;letter-spacing:.04em;
+    text-transform:uppercase;cursor:pointer}
+  .rk-vertcat__toggle:hover{background:var(--tn-green-050,#F0FDF4)}
+  .rk-vertcat__toggle::after{content:"\25BE";font-size:.8rem;transition:transform .18s ease}
+  .rk-vertcat__toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
+}
+.rk-vertcat__toggle{display:none}
+.rk-vertcat__toggle[hidden]{display:none!important}
+
+/* ------------------------------------------------------------
+   2. Card text was being cut mid-line
+
+   The base layer clamps the excerpt to three lines and pins
+   min-height:3.6em, a later layer clamps it to two. Whenever
+   -webkit-box-orient is lost the box degrades to a plain block that
+   overflow:hidden slices through the middle of a line - the half-row
+   of text visible under the product titles. Each text block is now
+   declared once, in full, with a max-height that matches its clamp, so
+   a partial line cannot render on any browser.
+   ------------------------------------------------------------ */
+.rk-card__title,
+ul.products li.product .woocommerce-loop-product__title{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+  overflow:hidden;
+  font-size:.92rem;font-weight:700;line-height:1.35;
+  min-height:calc(1.35em * 2);max-height:calc(1.35em * 2);
+  margin:0;padding:0;
+  overflow-wrap:anywhere;word-break:break-word;
+  color:var(--tn-ink,#0B2A1D);text-decoration:none}
+
+.rk-card__excerpt,.rk-card__desc{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+  overflow:hidden;
+  font-size:.8rem;line-height:1.45;
+  min-height:0;max-height:calc(1.45em * 2);
+  margin:0 0 2px;
+  overflow-wrap:anywhere;word-break:break-word;
+  color:var(--tn-muted,#5B6B63)}
+
+/* Keep the short description on phones - it is useful - but only ever
+   as two clean lines. The old rule hid it outright below 900px. */
+@media (max-width:900px){
+  .rk-card__excerpt{display:-webkit-box!important;-webkit-line-clamp:2}
+}
+@media (max-width:420px){
+  .rk-card__excerpt{display:none!important}
+  .rk-card__title{-webkit-line-clamp:3;min-height:calc(1.35em * 3);max-height:calc(1.35em * 3)}
+}
+
+/* Price, stock and buttons line up because the text blocks above are
+   now a fixed, predictable height. */
+.rk-card,ul.products li.product{min-width:0}
+.rk-card__price,ul.products li.product .price{margin-top:auto}
+
+/* ------------------------------------------------------------
+   3. Product page (PDP)
+   ------------------------------------------------------------ */
+.single-product div.product{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:38px;align-items:start;margin-top:18px}
+.single-product div.product > *{min-width:0}
+.single-product .woocommerce-product-gallery{
+  position:sticky;top:96px;margin:0;
+  border:1px solid var(--tn-line,#E3EAE6);border-radius:16px;
+  background:#fff;padding:14px;box-shadow:0 10px 30px rgba(11,42,29,.06)}
+.single-product .woocommerce-product-gallery img{border-radius:12px}
+.single-product .flex-control-thumbs{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 0;padding:0;list-style:none}
+.single-product .flex-control-thumbs li{width:72px;margin:0}
+.single-product .flex-control-thumbs img{
+  border:1px solid var(--tn-line,#E3EAE6);border-radius:9px;cursor:pointer;
+  transition:border-color .15s ease,transform .15s ease}
+.single-product .flex-control-thumbs img:hover,
+.single-product .flex-control-thumbs img.flex-active{
+  border-color:var(--tn-green,#22C55E);transform:translateY(-2px)}
+
+/* The summary column: clear hierarchy, nothing truncated */
+.single-product .summary.entry-summary{margin:0;display:flex;flex-direction:column;gap:14px}
+.single-product .product_title,
+.single-product .summary .product_title{
+  margin:0;font-size:clamp(1.35rem,2.4vw,1.95rem);line-height:1.25;
+  font-weight:800;letter-spacing:-.02em;color:var(--tn-ink,#0B2A1D);
+  overflow:visible;overflow-wrap:anywhere;word-break:break-word;
+  display:block;max-height:none;-webkit-line-clamp:none}
+.single-product .summary .price,
+.single-product .summary p.price{
+  margin:0;font-size:1.75rem;font-weight:900;letter-spacing:-.02em;
+  color:var(--tn-forest,#0B2A1D)}
+.single-product .summary .price del{font-size:1rem;font-weight:600;opacity:.55;margin-right:9px}
+.single-product .summary .price ins{text-decoration:none;color:#B9451D}
+.single-product .woocommerce-product-details__short-description{
+  margin:0;padding:15px 16px;border-radius:12px;
+  background:var(--tn-wash,#F6F9F7);border:1px solid var(--tn-line,#E3EAE6);
+  font-size:.92rem;line-height:1.65;color:var(--tn-ink,#0B2A1D);
+  /* never clamped - the full description belongs on the product page */
+  display:block;max-height:none;overflow:visible;-webkit-line-clamp:none;
+  overflow-wrap:anywhere}
+.single-product .woocommerce-product-details__short-description p:last-child{margin-bottom:0}
+.single-product .woocommerce-product-details__short-description ul{margin:8px 0 0;padding-left:20px}
+
+/* Buy row */
+.single-product form.cart{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:0}
+.single-product form.cart .quantity{display:flex}
+.single-product form.cart .quantity input.qty{
+  width:78px;height:50px;padding:0 10px;text-align:center;
+  border:1.5px solid var(--tn-line,#E3EAE6);border-radius:10px;
+  font-size:1rem;font-weight:700;background:#fff}
+.single-product .single_add_to_cart_button{
+  flex:1 1 220px;min-height:50px;border-radius:10px;
+  font-size:.95rem;font-weight:800;letter-spacing:.02em;cursor:pointer}
+.single-product .rk-wa-btn--pdp{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;min-height:48px;border-radius:10px;font-size:.92rem}
+.single-product .product_meta{
+  font-size:.82rem;color:var(--tn-muted,#5B6B63);
+  padding-top:13px;border-top:1px solid var(--tn-line,#E3EAE6)}
+.single-product .product_meta > span{display:block;margin-bottom:5px}
+.single-product .stock.in-stock{
+  display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  padding:4px 11px;border-radius:99px;margin:0;
+  background:var(--tn-green-050,#F0FDF4);color:var(--tn-green-700,#0C7A3B);
+  font-size:.78rem;font-weight:800}
+.single-product .stock.out-of-stock{
+  display:inline-flex;padding:4px 11px;border-radius:99px;margin:0;
+  background:#FEF2F2;color:#B42318;font-size:.78rem;font-weight:800}
+
+/* Delivery / trust / payment block */
+.rk-pdp-extra{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.rk-pdp-delivery{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:14px 15px;border-radius:12px;
+  background:var(--tn-green-050,#F0FDF4);border:1px solid var(--tn-green-300,#4ADE80);
+  font-size:.86rem;line-height:1.55;color:var(--tn-ink,#0B2A1D)}
+.rk-pdp-delivery svg{flex:0 0 auto;color:var(--tn-green-700,#0C7A3B)}
+.rk-trust{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;
+  margin:0;padding:0;list-style:none}
+.rk-trust li{
+  display:flex;align-items:center;gap:9px;min-width:0;
+  padding:11px 12px;border:1px solid var(--tn-line,#E3EAE6);border-radius:11px;
+  background:#fff;font-size:.8rem;font-weight:600;line-height:1.35;
+  color:var(--tn-ink,#0B2A1D)}
+.rk-trust li svg{flex:0 0 auto;width:19px;height:19px;color:var(--tn-green-700,#0C7A3B)}
+.rk-trust li span{min-width:0;overflow-wrap:anywhere}
+.rk-pdp-pay{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rk-pdp-pay__label{font-size:.78rem;font-weight:800;color:var(--tn-muted,#5B6B63);
+  letter-spacing:.05em;text-transform:uppercase}
+.rk-pay-chip{
+  padding:5px 11px;border-radius:99px;background:#F1F5F3;
+  border:1px solid var(--tn-line,#E3EAE6);
+  font-size:.75rem;font-weight:700;color:var(--tn-ink,#0B2A1D)}
+
+/* Tabs: readable, scrollable on a phone, never clipped */
+.single-product .woocommerce-tabs{grid-column:1/-1;margin-top:34px}
+.single-product .woocommerce-tabs ul.tabs{
+  display:flex;gap:6px;margin:0 0 -1px;padding:0;list-style:none;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--tn-line,#E3EAE6);scrollbar-width:none}
+.single-product .woocommerce-tabs ul.tabs::-webkit-scrollbar{display:none}
+.single-product .woocommerce-tabs ul.tabs::before,
+.single-product .woocommerce-tabs ul.tabs li::before,
+.single-product .woocommerce-tabs ul.tabs li::after{display:none!important}
+.single-product .woocommerce-tabs ul.tabs li{
+  margin:0;padding:0;border:0;background:none;border-radius:0;flex:0 0 auto}
+.single-product .woocommerce-tabs ul.tabs li a{
+  display:block;padding:12px 17px;border-bottom:3px solid transparent;
+  font-size:.87rem;font-weight:800;color:var(--tn-muted,#5B6B63);
+  text-decoration:none;white-space:nowrap}
+.single-product .woocommerce-tabs ul.tabs li.active a,
+.single-product .woocommerce-tabs ul.tabs li a:hover{
+  color:var(--tn-green-700,#0C7A3B);border-bottom-color:var(--tn-green,#22C55E)}
+.single-product .woocommerce-Tabs-panel{
+  padding:22px 0 4px;font-size:.93rem;line-height:1.7;
+  color:var(--tn-ink,#0B2A1D);overflow-wrap:anywhere}
+.single-product .woocommerce-Tabs-panel h2{font-size:1.1rem;margin:0 0 12px}
+.single-product .woocommerce-Tabs-panel table.shop_attributes{width:100%;border-collapse:collapse}
+.single-product .woocommerce-Tabs-panel table.shop_attributes th,
+.single-product .woocommerce-Tabs-panel table.shop_attributes td{
+  padding:11px 13px;border-bottom:1px solid var(--tn-line,#E3EAE6);
+  font-size:.87rem;text-align:left;vertical-align:top}
+.single-product .woocommerce-Tabs-panel table.shop_attributes th{
+  width:36%;font-weight:800;background:var(--tn-wash,#F6F9F7)}
+.single-product .woocommerce-Tabs-panel table.shop_attributes td p{margin:0}
+
+/* FAQ accordion */
+.rk-faq{display:flex;flex-direction:column;gap:9px}
+.rk-faq__item{
+  border:1px solid var(--tn-line,#E3EAE6);border-radius:11px;background:#fff;
+  padding:0 15px;overflow:hidden}
+.rk-faq__item summary{
+  cursor:pointer;padding:14px 0;font-size:.9rem;font-weight:700;
+  color:var(--tn-ink,#0B2A1D);list-style:none}
+.rk-faq__item summary::-webkit-details-marker{display:none}
+.rk-faq__item summary::after{content:"+";float:right;font-weight:800;color:var(--tn-green-700,#0C7A3B)}
+.rk-faq__item[open] summary::after{content:"\2013"}
+.rk-faq__item p{margin:0 0 15px;font-size:.88rem;line-height:1.65;color:var(--tn-muted,#5B6B63)}
+
+/* Related / recently viewed rows sit full width under the two columns */
+.single-product .related,.single-product .upsells,.single-product .rk-recent{
+  grid-column:1/-1;margin-top:34px}
+
+/* Sticky add-to-cart bar */
+.rk-sticky-atc__inner{display:flex;align-items:center;gap:13px;min-width:0}
+.rk-sticky-atc__media img{width:44px;height:44px;object-fit:contain;border-radius:8px}
+.rk-sticky-atc__title{
+  flex:1 1 auto;min-width:0;font-size:.9rem;font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-sticky-atc__price{flex:0 0 auto;font-weight:900;white-space:nowrap}
+
+/* ---------- PDP on tablets and phones ---------- */
+@media (max-width:1024px){
+  .single-product div.product{grid-template-columns:1fr;gap:20px}
+  .single-product .woocommerce-product-gallery{position:static;padding:10px}
+  .single-product .flex-control-thumbs li{width:58px}
+  .single-product .summary.entry-summary{gap:12px}
+  .single-product .woocommerce-tabs,
+  .single-product .related,.single-product .upsells,.single-product .rk-recent{margin-top:26px}
+}
+@media (max-width:640px){
+  .single-product .product_title{font-size:1.22rem;line-height:1.3}
+  .single-product .summary .price,.single-product .summary p.price{font-size:1.45rem}
+  .single-product .woocommerce-product-details__short-description{
+    padding:13px 14px;font-size:.88rem}
+  .single-product form.cart{gap:8px}
+  .single-product form.cart .quantity input.qty{width:68px;height:48px}
+  .single-product .single_add_to_cart_button{flex:1 1 100%}
+  .rk-trust{grid-template-columns:1fr}
+  .single-product .woocommerce-Tabs-panel table.shop_attributes th{width:44%}
+  /* clear the fixed tab bar so the foot of the page is reachable */
+  .single-product .rk-recent,.single-product .related{margin-bottom:14px}
+  .rk-sticky-atc{bottom:calc(62px + env(safe-area-inset-bottom))}
+  .rk-sticky-atc__price{display:none}
+}
+
+
+/* ============================================================
+   UI 4.3 - the category drawer actually opens
+   ============================================================ */
+
+/* The drawer's styles used to stop at max-width:992px, while the
+   hamburger and the bottom tab bar are shown all the way up to 1024px.
+   Between those two widths the panel was display:none, so both triggers
+   did nothing. The panel is also relocated to <body> by theme.js, out of
+   the header's stacking context, and it now sits above the fixed tab bar
+   (z-index:120) and the floating WhatsApp button (z-index:90). */
+@media (max-width:1024px){
+  .rk-mobile__overlay{
+    display:block;position:fixed;inset:0;
+    background:rgba(11,42,29,.55);
+    opacity:0;visibility:hidden;transition:opacity .25s ease;
+    z-index:1000}
+  .rk-mobile__overlay.is-open{opacity:1;visibility:visible}
+
+  .rk-mobile{
+    display:flex!important;flex-direction:column;
+    position:fixed;top:0;left:0;height:100%;height:100dvh;
+    width:320px;max-width:86vw;
+    background:#fff;
+    transform:translateX(-100%);transition:transform .28s ease;
+    z-index:1001;
+    box-shadow:8px 0 34px rgba(11,42,29,.26);
+    padding-bottom:0}
+  .rk-mobile.is-open{transform:none}
+
+  .rk-mobile__head{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    flex:0 0 auto;padding:16px 18px;
+    background:var(--tn-forest,#0B2A1D);color:#fff;
+    font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .rk-mobile__close{
+    background:none;border:0;color:#fff;font-size:1.8rem;line-height:1;
+    cursor:pointer;padding:0 4px;min-width:44px;min-height:44px}
+
+  .rk-mobile__cats{
+    flex:1 1 auto;min-height:0;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+    margin:0;padding:0;list-style:none}
+  .rk-mobile__cats li{border-bottom:1px solid var(--tn-line,#E3EAE6)}
+  .rk-mobile__cats a{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:14px 18px;min-height:48px;
+    color:var(--tn-ink,#0B2A1D);text-decoration:none;
+    font-size:.9rem;font-weight:600}
+  .rk-mobile__cats a:active{background:var(--tn-green-050,#F0FDF4)}
+  .rk-mobile__count{
+    flex:0 0 auto;background:#F1F5F3;color:var(--tn-muted,#5B6B63);
+    font-size:.72rem;font-weight:800;border-radius:99px;padding:2px 9px;
+    min-width:28px;text-align:center}
+
+  .rk-mobile__links{flex:0 0 auto;border-top:2px solid var(--tn-line,#E3EAE6);
+    background:var(--tn-wash,#F6F9F7);
+    padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .rk-mobile__toplinks{list-style:none;margin:0;padding:6px 0}
+  .rk-mobile__toplinks a{
+    display:block;padding:13px 18px;min-height:46px;
+    color:var(--tn-forest,#0B2A1D);text-decoration:none;font-weight:700;font-size:.9rem}
+
+  /* Nothing may paint over an open drawer */
+  body.rk-noscroll .rk-tabbar,
+  body.rk-noscroll .rk-whatsapp,
+  body.rk-noscroll .rk-backtop{opacity:0;pointer-events:none;transition:opacity .2s ease}
+
+  /* A real 44px tap target for the hamburger */
+  .rk-nav-toggle{min-width:44px;min-height:44px;justify-content:center}
+}
+
+/* Burger turns into a cross while the drawer is open */
+.rk-nav-toggle[aria-expanded="true"] .rk-burger{background:transparent}
+.rk-nav-toggle[aria-expanded="true"] .rk-burger::before{top:0;transform:rotate(45deg)}
+.rk-nav-toggle[aria-expanded="true"] .rk-burger::after{top:0;transform:rotate(-45deg)}
+
+/* ============================================================
+   Policy & legal pages  (shipping, returns, warranty, terms)
+   Scoped to .rk-policy so nothing here leaks into shop pages.
+   ============================================================ */
+.rk-policy{max-width:860px;margin:0 auto;color:#1f2933;line-height:1.75}
+.rk-policy p{margin:0 0 1.05rem}
+.rk-policy strong{color:#0f2b46;font-weight:600}
+.rk-policy-updated{font-size:.85rem;color:#6b7785;margin:0 0 1.25rem;padding-bottom:1rem;border-bottom:1px solid #e6eaee}
+.rk-policy-lead{font-size:1.1rem;line-height:1.7;color:#33414f}
+.rk-policy h2{margin:2.5rem 0 .85rem;font-size:1.3rem;line-height:1.35;color:#0f2b46;padding-left:.85rem;border-left:4px solid #f5a623}
+
+/* At-a-glance summary: the answers most customers came for */
+.rk-policy-summary{background:#f7f9fb;border:1px solid #e1e8ee;border-radius:12px;padding:1.4rem 1.6rem;margin:1.75rem 0 2.25rem}
+.rk-policy-summary h2{margin:0 0 1.1rem;padding:0;border:0;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:#6b7785}
+.rk-policy-summary ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem 1.75rem}
+.rk-policy-summary li{margin:0;padding:0;display:flex;flex-direction:column;gap:.2rem}
+.rk-policy-summary li strong{font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:#6b7785;font-weight:600}
+.rk-policy-summary li span{font-size:1.02rem;font-weight:600;color:#0f2b46;line-height:1.4}
+
+/* Delivery timeline table */
+.rk-policy-table{width:100%;border-collapse:collapse;margin:1.75rem 0;font-size:.95rem;border:1px solid #e1e8ee;border-radius:12px;overflow:hidden}
+.rk-policy-table thead th{background:#0f2b46;color:#fff;text-align:left;padding:.9rem 1.1rem;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.rk-policy-table td{padding:.9rem 1.1rem;border-top:1px solid #e8edf2;vertical-align:top;line-height:1.55}
+.rk-policy-table tbody tr:nth-child(even){background:#f8fafc}
+.rk-policy-table td:last-child{font-weight:600;color:#0f2b46;white-space:nowrap}
+
+/* Closing contact block */
+.rk-policy-contact{background:#0f2b46;color:#e8eef4;border-radius:12px;padding:1.3rem 1.6rem;margin:2.25rem 0 0;font-size:.97rem;line-height:1.7}
+.rk-policy-contact strong{color:#fff}
+.rk-policy-contact a{color:#f5a623;text-decoration:none}
+.rk-policy-contact a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+.rk-policy{font-size:.97rem}
+.rk-policy h2{font-size:1.14rem;margin-top:2rem;padding-left:.7rem;border-left-width:3px}
+.rk-policy-lead{font-size:1.03rem}
+.rk-policy-summary{padding:1.15rem 1.2rem;border-radius:10px}
+.rk-policy-summary ul{grid-template-columns:1fr;gap:.85rem}
+.rk-policy-table{font-size:.9rem;border-radius:10px}
+.rk-policy-table thead{display:none}
+.rk-policy-table tbody tr{display:block;border-top:1px solid #e8edf2}
+.rk-policy-table tbody tr:first-child{border-top:0}
+.rk-policy-table td{display:block;border:0;padding:.2rem 1rem}
+.rk-policy-table td:first-child{padding-top:.85rem}
+.rk-policy-table td:last-child{white-space:normal;padding-bottom:.85rem;color:#0a6b39}
+.rk-policy-contact{padding:1.1rem 1.2rem}
+}
+
