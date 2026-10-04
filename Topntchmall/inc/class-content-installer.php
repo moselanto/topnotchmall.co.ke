@@ -31,6 +31,7 @@ final class Content_Installer {
 		add_action( 'admin_init', array( $this, 'sync_category_images' ) );
 		add_action( 'admin_init', array( $this, 'refresh_contact_details' ) );
 		add_action( 'admin_init', array( $this, 'refresh_pages_content' ) );
+		add_action( 'admin_init', array( $this, 'refresh_trust_pages_v9' ), 13 );
 		add_action( 'admin_init', array( $this, 'ensure_privacy_page' ), 12 );
 		add_action( 'admin_init', array( $this, 'seed_contact_defaults' ) );
 		add_action( 'admin_init', array( $this, 'refresh_brand_colors' ) );
@@ -341,6 +342,7 @@ final class Content_Installer {
         $phone  = (string) get_theme_mod( 'topnotch_phone', '+254 708 777192' );
         $mail   = (string) get_theme_mod( 'topnotch_email', 'info@topnotchmall.co.ke' );
         $addr   = (string) get_theme_mod( 'topnotch_address', 'Magomano House, Tom Mboya Street, Nairobi, Kenya' );
+        $addr   = function_exists( 'rk_clean_address' ) ? rk_clean_address( $addr ) : $addr;
         $wa     = function_exists( 'rk_whatsapp_number' ) ? rk_whatsapp_number() : '254708777192';
         $tel    = '+' . ( '' === $wa ? '254708777192' : $wa );
         $hours  = (string) get_theme_mod( 'topnotch_hours', 'Mon - Sat, 9AM - 5PM' );
@@ -357,7 +359,7 @@ final class Content_Installer {
             ),
             'privacy-policy' => array(
                 'title'   => 'Privacy Policy',
-                'content' => "<p><em>Last updated: 1 September 2026</em></p><p>This policy explains how {$name} collects and uses your personal information when you shop with us or use this website. We handle personal data in line with the Data Protection Act, 2019 and are guided by the Office of the Data Protection Commissioner.</p><h2>1. Information we collect</h2><p>When you place an order or get in touch, we collect your name, phone number, email address and delivery address, together with the details of what you bought. As you use the website we also collect basic technical information such as your IP address, browser type and the pages you visit, mostly through cookies.</p><h2>2. How we use your information</h2><p>We use it to process and deliver your orders, answer your questions, keep you updated on an order, and meet our tax and record-keeping obligations. We only send offers or marketing messages if you have asked to receive them, and you can opt out at any time.</p><h2>3. Payments</h2><p>We do not take card payments online and this website does not collect any card or bank details. You pay by M-PESA or in cash on delivery or collection. M-PESA payments are handled by Safaricom, and we only receive the confirmation details of the transaction.</p><h2>4. Who we share it with</h2><p>We share your details only with the partners who help us complete your order, such as delivery and courier companies and Safaricom for M-PESA payments, and with the authorities where the law requires it. We do not sell your personal information.</p><h2>5. How long we keep it</h2><p>We keep your information for as long as we need it to complete your order and satisfy legal and tax requirements, then we delete or anonymise it.</p><h2>6. Your rights</h2><p>You can ask to see the information we hold about you, correct it, or have it deleted, and you can object to us using it in certain ways. Email {$mail} and we will respond.</p><h2>7. Contact</h2><p>{$name}, {$addr}. {$phone} / {$mail}.</p>",
+                'content' => "<p><em>Last updated: 4 October 2026</em></p><p>This policy explains how {$name} collects and uses your personal information when you shop with us or use this website. We handle personal data in line with the Data Protection Act, 2019 and are guided by the Office of the Data Protection Commissioner.</p><h2>1. Information we collect</h2><p>When you place an order or get in touch, we collect your name, phone number, email address and delivery address, together with the details of what you bought. As you use the website we also collect basic technical information such as your IP address, browser type and the pages you visit, mostly through cookies.</p><h2>2. How we use your information</h2><p>We use it to process and deliver your orders, answer your questions, keep you updated on an order, and meet our tax and record-keeping obligations. We only send offers or marketing messages if you have asked to receive them, and you can opt out at any time.</p><h2>3. Payments</h2><p>We do not take card payments online and this website does not collect any card or bank details. You pay by M-PESA or in cash on delivery or collection. M-PESA payments are handled by Safaricom, and we only receive the confirmation details of the transaction.</p><h2>4. Analytics and advertising</h2><p>We use Google Analytics and Google Ads, services provided by Google, to understand how visitors use this website and to measure which pages and adverts lead to orders or WhatsApp enquiries. These services use cookies and similar technologies to collect information such as the pages you view, the links you click (including WhatsApp links), your device and browser type and your approximate location. When an order is placed, we may also send Google a hashed (one-way scrambled) version of the email address and phone number given at checkout, a feature called enhanced conversions, so that Google can match the order to an advert click. Google cannot recover your original details from the hash. Google processes this information under its own privacy policy at policies.google.com/privacy. You can turn off personalised advertising at adssettings.google.com, block or delete cookies in your browser (see our Cookie Policy), or install the Google Analytics opt-out browser add-on.</p><h2>5. Who we share it with</h2><p>We share your details only with the partners who help us complete your order, such as delivery and courier companies and Safaricom for M-PESA payments, with Google for the analytics and advertising measurement described above, and with the authorities where the law requires it. We do not sell your personal information.</p><h2>6. How long we keep it</h2><p>We keep your information for as long as we need it to complete your order and satisfy legal and tax requirements, then we delete or anonymise it.</p><h2>7. Your rights</h2><p>You can ask to see the information we hold about you, correct it, or have it deleted, and you can object to us using it in certain ways. Email {$mail} and we will respond.</p><h2>8. Contact</h2><p>{$name}, {$addr}. {$phone} / {$mail}.</p>",
             ),
             'terms-conditions' => array(
                 'title'   => 'Terms &amp; Conditions',
@@ -373,7 +375,7 @@ final class Content_Installer {
             ),
             'warranty-policy' => array(
                 'title'   => 'Warranty Policy',
-                'content' => "<p><em>Last updated: 1 September 2026</em></p><p>The tools and equipment we sell carry the manufacturer's warranty. This page explains what that covers and how to make a claim.</p><h2>Warranty period</h2><p>How long the cover lasts depends on the brand and the type of product. As a guide, most power tools carry six to twelve months, and many generators and solar products carry twelve months or more. The exact period is shown on the product page or in the papers that come with the item.</p><h2>What is covered</h2><p>The warranty covers faults in materials or workmanship under normal use. If a covered item fails, it will be repaired or replaced; where neither is possible, a refund is arranged in line with the manufacturer's terms.</p><h2>What is not covered</h2><p>Normal wear and tear and consumable parts are not covered, and neither is damage caused by misuse, overloading, dropping, the wrong power supply, water, unauthorised repairs or not following the manufacturer's instructions.</p><h2>How to make a claim</h2><p>Contact us on {$phone} or {$mail} with your order number, your receipt and a short description of the fault. Keep the original box and accessories where you can. We will guide you through the claim and, where needed, book the item in with the manufacturer's service centre.</p><h2>Proof of purchase</h2><p>You will need your receipt or order confirmation for any warranty claim, so please keep it safe.</p><p>{$name}, {$addr}. {$phone} / {$mail}.</p>",
+                'content' => "<p><em>Last updated: 4 October 2026</em></p><p>{$name} is an independent retailer. We are not an authorised dealer, distributor or service agent for any manufacturer. Warranty cover differs from product to product, and this page explains exactly what applies to your purchase.</p><h2>Which products carry a warranty</h2><p>Where a product comes with a warranty, the warranty period and who provides it (the manufacturer or {$name}) are stated on the product page or on your receipt. <strong>Where no warranty is stated, none is offered</strong>, beyond your statutory rights and our Return &amp; Refund Policy.</p><h2>What a stated warranty covers</h2><p>A stated warranty covers faults in materials or workmanship under normal use during the stated period. A covered item is repaired or replaced; where neither is possible, a refund is arranged in line with the warranty terms.</p><h2>What is not covered</h2><p>Normal wear and tear and consumable parts are not covered, and neither is damage caused by misuse, overloading, dropping, the wrong power supply, water, unauthorised repairs or not following the manufacturer's instructions.</p><h2>How to make a claim</h2><p>Contact us on {$phone} or {$mail} with your order number, your receipt and a short description of the fault. Where the warranty is provided by the manufacturer, we will help you contact the manufacturer or its local service agent; the final decision on a manufacturer warranty claim rests with the manufacturer. Where the warranty is provided by {$name}, we handle the claim ourselves.</p><h2>Your rights are not affected</h2><p>Goods that arrive faulty, damaged, not as described or wrong are always covered by our Return &amp; Refund Policy and by your rights under the Consumer Protection Act, 2012, whether or not a warranty is stated.</p><h2>Proof of purchase</h2><p>You will need your receipt or order confirmation for any claim, so please keep it safe.</p><p>{$name}, {$addr}. {$phone} / {$mail}.</p>",
             ),
             'payment-methods' => array(
                 'title'   => 'Payment Methods',
@@ -382,7 +384,7 @@ final class Content_Installer {
             ),
             'cookie-policy' => array(
                 'title'   => 'Cookie Policy',
-                'content' => "<p><em>Last updated: 1 September 2026</em></p><p>This website uses cookies. Cookies are small files saved on your phone or computer that help the site work and remember what you do.</p><h2>Why we use them</h2><p>Some cookies are essential: they keep your shopping cart and checkout working as you move around the site. Others remember your preferences, such as items you have looked at, and some help us see how the site is used so we can improve it.</p><h2>Managing cookies</h2><p>You can delete or block cookies in your browser settings. Do note that if you turn off the essential ones, parts of the site such as the cart and checkout may stop working properly.</p><p>Questions about cookies: {$mail}.</p>",
+                'content' => "<p><em>Last updated: 4 October 2026</em></p><p>This website uses cookies. Cookies are small files saved on your phone or computer that help the site work and remember what you do.</p><h2>Why we use them</h2><p>Some cookies are essential: they keep your shopping cart and checkout working as you move around the site. Others remember your preferences, such as items you have looked at, and some help us see how the site is used so we can improve it.</p><h2>Analytics and advertising cookies</h2><p>We use Google Analytics (to count visits and see which pages are used) and Google Ads (to measure whether our adverts lead to orders or WhatsApp enquiries). These Google services set their own cookies, such as _ga, _gid, _gcl_au and similar, which typically last from one day to two years. They record things like pages viewed, links clicked and the advert that brought you to the site. See our Privacy Policy for more, and Google's policy at policies.google.com/technologies/cookies.</p><h2>Managing cookies</h2><p>You can delete or block cookies in your browser settings. Do note that if you turn off the essential ones, parts of the site such as the cart and checkout may stop working properly.</p><p>Questions about cookies: {$mail}.</p>",
             ),
             'faq' => array(
                 'title'   => 'Frequently Asked Questions',
@@ -425,6 +427,53 @@ final class Content_Installer {
             error_log( 'Topnotch Mall pages content refresh failed: ' . $e->getMessage() );
         }
     }
+
+	/**
+	 * v9 (1.28.2): rewrite only the Warranty, Privacy and Cookie pages (warranty
+	 * wording reconciled with About Us; Google Analytics / Ads / enhanced
+	 * conversions disclosed), and strip the duplicated "sole proprietorship"
+	 * line that had been appended after the address on every info page.
+	 * Other pages keep any manual edits. Runs once (own flag).
+	 */
+	public function refresh_trust_pages_v9(): void {
+		if ( get_option( 'topnotch_trust_pages_v9' ) ) {
+			return;
+		}
+		if ( function_exists( 'current_user_can' ) === false || current_user_can( 'edit_theme_options' ) === false ) {
+			return;
+		}
+		try {
+			$pages = $this->pages();
+			foreach ( array( 'warranty-policy', 'privacy-policy', 'cookie-policy' ) as $slug ) {
+				$existing = get_page_by_path( $slug );
+				if ( $existing instanceof \WP_Post && isset( $pages[ $slug ] ) ) {
+					wp_update_post( array( 'ID' => (int) $existing->ID, 'post_content' => $pages[ $slug ]['content'] ) );
+				}
+			}
+			$slugs = array( 'about-us', 'contact-us', 'payment-methods', 'return-refund-policy', 'shipping-delivery-policy', 'track-order', 'faq', 'terms-conditions' );
+			foreach ( $slugs as $slug ) {
+				$page = get_page_by_path( $slug );
+				if ( $page instanceof \WP_Post === false ) {
+					continue;
+				}
+				$content = (string) $page->post_content;
+				$updated = function_exists( 'rk_clean_address' ) ? rk_clean_address( $content ) : $content;
+				if ( $updated !== $content ) {
+					wp_update_post( array( 'ID' => (int) $page->ID, 'post_content' => $updated ) );
+				}
+			}
+			$mod = (string) get_theme_mod( 'topnotch_address', '' );
+			if ( '' !== $mod && function_exists( 'rk_clean_address' ) ) {
+				$clean = rk_clean_address( $mod );
+				if ( $clean !== $mod && '' !== $clean ) {
+					set_theme_mod( 'topnotch_address', $clean );
+				}
+			}
+			update_option( 'topnotch_trust_pages_v9', time() );
+		} catch ( \Throwable $e ) {
+			error_log( 'Topnotch Mall trust pages v9 refresh failed: ' . $e->getMessage() );
+		}
+	}
 
 	/**
 	 * Move the saved brand colours from the old blue palette to the green one.

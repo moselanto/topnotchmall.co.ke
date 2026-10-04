@@ -118,3 +118,22 @@ function rk_whatsapp_button( $product, string $extra_class = '' ): string {
 		esc_html__( 'Order on WhatsApp', 'topnotch-mall' )
 	);
 }
+
+if ( ! function_exists( 'rk_clean_address' ) ) {
+	/**
+	 * Remove a "Topnotch Mall - a sole proprietorship registered in Kenya."
+	 * sentence that has been glued onto the address, and tidy doubled
+	 * punctuation, so the address reads exactly as registered.
+	 *
+	 * @param string $text Address or page content.
+	 */
+	function rk_clean_address( string $text ): string {
+		$out = preg_replace( '/(Kenya)[\s.,]*Topnotch Mall\s*(?:-|&#8211;|&#8212;|&ndash;|&mdash;|\x{2013}|\x{2014})\s*a sole proprietorship registered in Kenya\.?/u', '$1', $text );
+		if ( ! is_string( $out ) ) {
+			return $text;
+		}
+		$out = preg_replace( '/Kenya\.\.+/', 'Kenya.', $out );
+		return is_string( $out ) ? $out : $text;
+	}
+}
+

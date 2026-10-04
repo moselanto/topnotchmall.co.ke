@@ -21,7 +21,7 @@ $rk_trust = array(
 	array(
 		'svg'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
 		'title' => __( 'Independent retailer', 'topnotch-mall' ),
-		'desc'  => __( 'Well-known brands, manufacturer warranty where applicable', 'topnotch-mall' ),
+		'desc'  => __( 'Well-known brands, warranty only where stated', 'topnotch-mall' ),
 	),
 	array(
 		'svg'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M7 15h4"/></svg>',

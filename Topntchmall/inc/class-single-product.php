@@ -62,7 +62,7 @@ final class Single_Product {
 		echo '<ul class="rk-trust">';
 		$badges = array(
 			array( '<path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"></path><path d="M9 12l2 2 4-4"></path>', __( 'Independent Retailer', 'topnotch-mall' ) ),
-			array( '<path d="M20 6L9 17l-5-5"></path>', __( 'Manufacturer Warranty Where Applicable', 'topnotch-mall' ) ),
+			array( '<path d="M20 6L9 17l-5-5"></path>', __( 'Warranty Only Where Stated', 'topnotch-mall' ) ),
 			array( '<rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path>', __( 'Pay on Delivery or M-PESA', 'topnotch-mall' ) ),
 			array( '<path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path><path d="M12 7v5l3 2"></path>', __( 'Responsive Support', 'topnotch-mall' ) ),
 		);
@@ -114,7 +114,7 @@ final class Single_Product {
 		$faqs  = array(
 			array( __( 'How soon can I get this delivered?', 'topnotch-mall' ), __( 'Nairobi orders are usually delivered the same or next working day. Upcountry orders take 2 to 7 working days depending on the destination, counted from dispatch. Delivery is a flat KSh 500 anywhere in Kenya, or free if you collect from our shop.', 'topnotch-mall' ) ),
 			array( __( 'How do I pay?', 'topnotch-mall' ), __( 'Place your order online, then pay by M-PESA or cash on delivery (or when you collect from our shop). We do not accept card payments online.', 'topnotch-mall' ) ),
-			array( __( 'Who sells this product and is it covered by warranty?', 'topnotch-mall' ), __( 'Topnotch Mall is an independent retailer, not an authorised distributor or official partner of the brand. Brand names are used only to identify the product. Manufacturer warranty applies where the manufacturer offers it, and our Return & Refund Policy applies to every order.', 'topnotch-mall' ) ),
+			array( __( 'Who sells this product and is it covered by warranty?', 'topnotch-mall' ), __( 'Topnotch Mall is an independent retailer, not an authorised distributor or official partner of the brand. Brand names are used only to identify the product. Where a warranty applies, its period and provider are stated on this page; where none is stated, none is offered. Our Return & Refund Policy applies to every order.', 'topnotch-mall' ) ),
 			array( __( 'Can I return it if there is a problem?', 'topnotch-mall' ), __( 'Yes. You can return most items within 7 days of delivery, including if you simply change your mind. We pay the return cost when an item is faulty, damaged or wrong. See our Return &amp; Refund Policy for details.', 'topnotch-mall' ) ),
 			array( __( 'How do I get help before buying?', 'topnotch-mall' ), __( 'Call or WhatsApp us and our team will help you choose the right tool for the job.', 'topnotch-mall' ) . ' ' . $phone ),
 		);

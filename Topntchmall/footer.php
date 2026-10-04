@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 $rk_phone    = get_theme_mod( 'topnotch_phone', '+254 708 777192' );
 $rk_email    = get_theme_mod( 'topnotch_email', 'info@topnotchmall.co.ke' );
 $rk_address  = get_theme_mod( 'topnotch_address', 'Magomano House, Tom Mboya Street, Nairobi, Kenya' );
+$rk_address  = function_exists( 'rk_clean_address' ) ? rk_clean_address( (string) $rk_address ) : $rk_address;
 $rk_whatsapp = get_theme_mod( 'topnotch_whatsapp', '254708777192' );
 $rk_hours    = get_theme_mod( 'topnotch_hours', 'Mon - Sat, 9AM - 5PM' );
 $rk_cutoff   = get_theme_mod( 'topnotch_cutoff', '5:00pm' );
