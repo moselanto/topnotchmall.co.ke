@@ -43,6 +43,8 @@ final class Customizer {
 		$this->text( $wp_customize, 'topnotch_cutoff', '5:00pm', __( 'Same-day order cut-off time', 'topnotch-mall' ) );
 		$this->text( $wp_customize, 'topnotch_legal_name', '', __( 'Registered business name (exactly as on registration certificate)', 'topnotch-mall' ) );
 		$this->text( $wp_customize, 'topnotch_kra_pin', '', __( 'KRA PIN (shown in footer and Terms when filled)', 'topnotch-mall' ) );
+		$this->text( $wp_customize, 'topnotch_ga4_id', 'G-WD7ZVQZ0SD', __( 'Google Analytics 4 measurement ID (blank to disable)', 'topnotch-mall' ) );
+		$this->text( $wp_customize, 'topnotch_wa_conversion', '', __( 'Google Ads "Order on WhatsApp" conversion send_to (AW-XXXXXXXXXX/label)', 'topnotch-mall' ) );
 	}
 
 	private function color( $wp, string $id, string $default, string $label ): void {

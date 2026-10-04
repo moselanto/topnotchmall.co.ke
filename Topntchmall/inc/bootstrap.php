@@ -26,6 +26,7 @@ $topnotch_modules = array(
 	'TopnotchMall\\Demo_Import',
 	'TopnotchMall\\Single_Product',
 	'TopnotchMall\\Merchant_Inspector',
+	'TopnotchMall\\Analytics',
 );
 
 foreach ( $topnotch_modules as $topnotch_class ) {
