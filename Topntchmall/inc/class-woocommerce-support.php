@@ -668,8 +668,6 @@ final class WooCommerce_Support {
 	private function payment_chips(): string {
 		$methods = array(
 			__( 'M-PESA', 'topnotch-mall' ),
-			__( 'Visa', 'topnotch-mall' ),
-			__( 'Mastercard', 'topnotch-mall' ),
 			__( 'Cash on Delivery', 'topnotch-mall' ),
 		);
 		$out = '<div class="rk-payments rk-payments--checkout">';
@@ -692,7 +690,7 @@ final class WooCommerce_Support {
 	 */
 	public function checkout_trust(): void {
 		echo '<div class="rk-checkout-trust">';
-		echo '<p class="rk-secure-note">' . $this->lock_icon() . '<span>' . esc_html__( 'Secure checkout. Your details are encrypted and never shared.', 'topnotch-mall' ) . '</span></p>';
+		echo '<p class="rk-secure-note">' . $this->lock_icon() . '<span>' . esc_html__( 'No payment is taken online. Pay by M-PESA or cash on delivery once we confirm your order.', 'topnotch-mall' ) . '</span></p>';
 		echo $this->payment_chips(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped parts.
 		echo '</div>';
 	}
@@ -702,7 +700,7 @@ final class WooCommerce_Support {
 	 */
 	public function cart_trust(): void {
 		echo '<div class="rk-cart-trust">';
-		echo '<p class="rk-secure-note">' . $this->lock_icon() . '<span>' . esc_html__( 'Secure checkout. M-PESA, cards and cash on delivery accepted.', 'topnotch-mall' ) . '</span></p>';
+		echo '<p class="rk-secure-note">' . $this->lock_icon() . '<span>' . esc_html__( 'Pay by M-PESA or cash on delivery. No card payments online.', 'topnotch-mall' ) . '</span></p>';
 		echo '</div>';
 	}
 

@@ -41,6 +41,8 @@ final class Customizer {
 		$this->text( $wp_customize, 'topnotch_address', 'Magomano House, Tom Mboya Street, Nairobi, Kenya', __( 'Business Address', 'topnotch-mall' ) );
 		$this->text( $wp_customize, 'topnotch_whatsapp', '254708777192', __( 'WhatsApp number (intl, no +)', 'topnotch-mall' ) );
 		$this->text( $wp_customize, 'topnotch_cutoff', '5:00pm', __( 'Same-day order cut-off time', 'topnotch-mall' ) );
+		$this->text( $wp_customize, 'topnotch_legal_name', '', __( 'Registered business name (exactly as on registration certificate)', 'topnotch-mall' ) );
+		$this->text( $wp_customize, 'topnotch_kra_pin', '', __( 'KRA PIN (shown in footer and Terms when filled)', 'topnotch-mall' ) );
 	}
 
 	private function color( $wp, string $id, string $default, string $label ): void {

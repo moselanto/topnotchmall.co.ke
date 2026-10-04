@@ -20,7 +20,7 @@ $rk_cutoff   = get_theme_mod( 'topnotch_cutoff', '5:00pm' );
 		<div class="rk-footer__cols">
 			<div>
 				<h3><?php bloginfo( 'name' ); ?></h3>
-				<p><strong><?php esc_html_e( 'Address:', 'topnotch-mall' ); ?></strong><br><?php echo esc_html( $rk_address ); ?><br><?php echo esc_html( sprintf( __( '%s - a sole proprietorship registered in Kenya.', 'topnotch-mall' ), get_bloginfo( 'name' ) ) ); ?></p>
+				<p><strong><?php esc_html_e( 'Address:', 'topnotch-mall' ); ?></strong><br><?php echo esc_html( $rk_address ); ?><br><?php echo esc_html( sprintf( __( '%s - a sole proprietorship registered in Kenya.', 'topnotch-mall' ), get_bloginfo( 'name' ) ) ); ?><?php $rk_legal = trim( (string) get_theme_mod( 'topnotch_legal_name', '' ) ); $rk_kra = trim( (string) get_theme_mod( 'topnotch_kra_pin', '' ) ); if ( '' \!== $rk_legal ) : ?><br><?php echo esc_html( sprintf( __( 'Registered name: %s', 'topnotch-mall' ), $rk_legal ) ); ?><?php endif; if ( '' \!== $rk_kra ) : ?><br><?php echo esc_html( sprintf( __( 'KRA PIN: %s', 'topnotch-mall' ), $rk_kra ) ); ?><?php endif; ?></p>
 				<p><strong><?php esc_html_e( 'Opening hours:', 'topnotch-mall' ); ?></strong><br><?php echo esc_html( $rk_hours ); ?><br><?php echo esc_html( sprintf( __( 'Same-day dispatch for orders confirmed before %s.', 'topnotch-mall' ), $rk_cutoff ) ); ?></p>
 				<p><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $rk_phone ) ); ?>"><?php echo esc_html( $rk_phone ); ?></a><br><a href="https://wa.me/<?php echo esc_attr( $rk_whatsapp ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'WhatsApp us', 'topnotch-mall' ); ?></a><br><a href="mailto:<?php echo esc_attr( $rk_email ); ?>"><?php echo esc_html( $rk_email ); ?></a></p>
 			</div>
@@ -35,10 +35,11 @@ $rk_cutoff   = get_theme_mod( 'topnotch_cutoff', '5:00pm' );
 			<div>
 				<h3><?php esc_html_e( 'We Accept', 'topnotch-mall' ); ?></h3>
 				<div class="rk-payments">
-					<span>M-PESA</span><span>Visa</span><span>Mastercard</span><span>Cash on Delivery</span>
+					<span>M-PESA</span><span>Cash on Delivery</span>
 				</div>
-				<h3 style="margin-top:18px"><?php esc_html_e( 'Secure Shopping', 'topnotch-mall' ); ?></h3>
-				<div class="rk-payments"><span>SSL Secured</span><span>Verified Business</span></div>
+				<p class="rk-payments-note" style="margin-top:8px;font-size:.85em"><?php esc_html_e( 'Order online, then pay by M-PESA or cash when your order is delivered or collected. We do not take card payments online.', 'topnotch-mall' ); ?></p>
+				<h3 style="margin-top:18px"><?php esc_html_e( 'Independent Retailer', 'topnotch-mall' ); ?></h3>
+				<p style="font-size:.85em"><?php esc_html_e( 'Topnotch Mall is an independent retailer. We are not an authorised distributor or official partner of the brands we sell.', 'topnotch-mall' ); ?></p>
 			</div>
 		</div>
 	</div>

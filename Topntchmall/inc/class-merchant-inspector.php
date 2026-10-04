@@ -259,7 +259,7 @@ final class Merchant_Inspector {
 			__( 'Payment method enabled', 'topnotch-mall' ),
 			$enabled_gw > 0 ? 'pass' : 'critical',
 			$enabled_gw > 0 ? sprintf( __( '%d payment method(s) enabled.', 'topnotch-mall' ), $enabled_gw ) : __( 'No payment method is enabled — shoppers cannot pay.', 'topnotch-mall' ),
-			__( 'WooCommerce > Settings > Payments: enable M-PESA / card / cash on delivery.', 'topnotch-mall' ),
+			__( 'WooCommerce > Settings > Payments: enable only the methods the site advertises (M-PESA / cash on delivery).', 'topnotch-mall' ),
 			$has_wc ? admin_url( 'admin.php?page=wc-settings&tab=checkout' ) : $admin,
 			__( 'Open Payments', 'topnotch-mall' )
 		);

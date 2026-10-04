@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage trust band: delivery, genuine brands, secure payment, support.
+ * Homepage trust band: delivery, independent retailer, payment, support.
  *
  * @package TopnotchMall
  */
@@ -20,13 +20,13 @@ $rk_trust = array(
 	),
 	array(
 		'svg'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
-		'title' => __( 'Genuine brands & warranty', 'topnotch-mall' ),
-		'desc'  => __( 'Authentic tools, backed by warranty', 'topnotch-mall' ),
+		'title' => __( 'Independent retailer', 'topnotch-mall' ),
+		'desc'  => __( 'Well-known brands, manufacturer warranty where applicable', 'topnotch-mall' ),
 	),
 	array(
 		'svg'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M7 15h4"/></svg>',
 		'title' => __( 'Cash on delivery', 'topnotch-mall' ),
-		'desc'  => __( 'Pay on delivery, or by M-PESA when you order', 'topnotch-mall' ),
+		'desc'  => __( 'Pay by M-PESA or cash on delivery, no card payments online', 'topnotch-mall' ),
 	),
 	array(
 		'svg'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M20 19a4 4 0 0 1-4 3h-2"/></svg>',

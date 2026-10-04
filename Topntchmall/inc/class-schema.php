@@ -181,7 +181,7 @@ final class Schema {
 			),
 			'areaServed'               => array( '@type' => 'Country', 'name' => 'Kenya' ),
 			'currenciesAccepted'       => 'KES',
-			'paymentAccepted'          => 'M-PESA, Visa, Mastercard, Cash on Delivery',
+			'paymentAccepted'          => 'M-PESA, Cash on Delivery',
 			'openingHours'             => 'Mo-Sa 09:00-17:00',
 			'openingHoursSpecification' => array(
 				array(

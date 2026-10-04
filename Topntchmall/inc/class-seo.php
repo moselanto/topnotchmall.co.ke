@@ -98,7 +98,7 @@ final class SEO {
 		if ( is_front_page() || is_home() ) {
 			return sprintf(
 				/* translators: %s: shop name. */
-				__( 'Buy genuine power tools, solar panels, generators, water pumps and welding machines in Kenya from %s. Nairobi shop, countrywide delivery, M-PESA accepted.', 'topnotch-mall' ),
+				__( 'Buy power tools, solar panels, generators, water pumps and welding machines in Kenya from %s. Nairobi shop, countrywide delivery, M-PESA accepted.', 'topnotch-mall' ),
 				$shop
 			);
 		}
@@ -117,7 +117,7 @@ final class SEO {
 				return $this->trim_desc(
 					sprintf(
 						/* translators: 1: product name, 2: shop name. */
-						__( 'Buy the %1$s in Kenya from %2$s. Genuine stock, clear pricing and fast countrywide delivery.', 'topnotch-mall' ),
+						__( 'Buy the %1$s in Kenya from %2$s. Clear pricing and fast countrywide delivery.', 'topnotch-mall' ),
 						$product->get_name(),
 						$shop
 					)
@@ -135,7 +135,7 @@ final class SEO {
 				return $this->trim_desc(
 					sprintf(
 						/* translators: 1: category name, 2: shop name. */
-						__( 'Shop %1$s in Kenya at %2$s. Genuine brands, honest prices and delivery countrywide from our Nairobi shop.', 'topnotch-mall' ),
+						__( 'Shop %1$s in Kenya at %2$s. Well-known brands, honest prices and delivery countrywide from our Nairobi shop.', 'topnotch-mall' ),
 						$term->name,
 						$shop
 					)

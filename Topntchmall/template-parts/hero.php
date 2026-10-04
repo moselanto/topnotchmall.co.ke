@@ -55,7 +55,7 @@ defined( 'ABSPATH' ) || exit;
 					array(
 						'img'   => TOPNOTCH_URI . 'assets/img/banner-tools.webp',
 						'title' => __( 'Power tools built for the job', 'topnotch-mall' ),
-						'text'  => __( 'Genuine brands, honest prices, and same-day dispatch on Nairobi orders placed before 5pm.', 'topnotch-mall' ),
+						'text'  => __( 'Well-known brands, honest prices, and same-day dispatch on Nairobi orders placed before 5pm.', 'topnotch-mall' ),
 						'url'   => $rk_shop,
 					),
 					array(
